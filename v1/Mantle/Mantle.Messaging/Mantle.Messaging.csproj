@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{48F77C1A-CDB2-47D6-8BDE-099D857DE77F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mantle.Messaging</RootNamespace>
+    <AssemblyName>Mantle.Messaging</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Channels\NullPublisherChannel.cs" />
+    <Compile Include="Configuration\DefaultSubscriptionConfiguration.cs" />
+    <Compile Include="Configurers\DefaultSubscriptionConfigurer.cs" />
+    <Compile Include="Constraints\FunctionalSubscriptionConstraint.cs" />
+    <Compile Include="Contexts\SubscriptionMessageContext.cs" />
+    <Compile Include="Extensions\IPublisherChannelExtensions.cs" />
+    <Compile Include="Interfaces\IDeadLetterStrategy.cs" />
+    <Compile Include="Interfaces\IMessageContext.cs" />
+    <Compile Include="Interfaces\IPublisherChannel.cs" />
+    <Compile Include="Interfaces\ISubscriber.cs" />
+    <Compile Include="Interfaces\ISubscriberChannel.cs" />
+    <Compile Include="Interfaces\ISubscription.cs" />
+    <Compile Include="Interfaces\ISubscriptionConfiguration.cs" />
+    <Compile Include="Interfaces\ISubscriptionConfigurer.cs" />
+    <Compile Include="Interfaces\ISubscriptionConstraint.cs" />
+    <Compile Include="Interfaces\ISubscriptionFilter.cs" />
+    <Compile Include="Messages\MessageEnvelope.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Strategies\DefaultDeadLetterStrategy.cs" />
+    <Compile Include="Strategies\NullDeadLetterStrategy.cs" />
+    <Compile Include="Subscriptions\DefaultSubscription.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mantle.Configuration\Mantle.Configuration.csproj">
+      <Project>{14843F74-B007-4357-9AEA-4703D772B6AE}</Project>
+      <Name>Mantle.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mantle\Mantle.csproj">
+      <Project>{CE605888-E0D5-4195-9115-45CC9A3B0548}</Project>
+      <Name>Mantle</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
